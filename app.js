@@ -28,6 +28,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const choices = ['rock', 'paper', 'scissors'];
+let playerScore = 0;
+let computerScore = 0;
 
 function game() {
     for (let i = 1; i < 6; i++) {
@@ -41,6 +43,21 @@ function game() {
         console.log("Player chose: " + playerSelection);
         console.log("Computer chose: " + computerSelection);
         console.log(result);
+        if (result.startsWith("You win!")) {
+            playerScore++;
+        } else if (result.startsWith("You lose!")) {
+            computerScore++;
+        }
+        console.log("You score: " + playerScore + " Computer score: " + computerScore);
+    }
+
+    if (playerScore > computerScore) {
+        console.log("You won!")
+    } else if (playerScore < computerScore) {
+        console.log("You lost!")
+    } else if (playerScore === computerScore) {
+        console.log("Draw!")
     }
 }
+
 game();
