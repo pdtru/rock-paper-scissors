@@ -29,24 +29,38 @@ const choices = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
 
+// function that plays 5 rounds
 function game() {
     for (let i = 1; i < 6; i++) {
         const roundNumber = i;
         alert("Round " + roundNumber);
+
         // case-insensitive prompt for user
         const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
+
         // variable that selects random value from an array
         const computerSelection = choices[Math.floor(Math.random() * choices.length)];
+
         const result = playRound(playerSelection, computerSelection);
         console.log("Player chose: " + playerSelection);
         console.log("Computer chose: " + computerSelection);
         console.log(result);
-        if (result.startsWith("You win!")) {
+        if (result.startsWith("It's a tie!") || result.startsWith("Invalid choice.")) {
+            i--;
+            continue;
+        } else if (result.startsWith("You win!")) {
             playerScore++;
         } else if (result.startsWith("You lose!")) {
             computerScore++;
         }
         console.log("Your score: " + playerScore + " Computer score: " + computerScore);
+        if (playerScore === 3) {
+            console.log("You won!");
+            return;
+        } else if (computerScore === 3) {
+            console.log("You lost!");
+            return;
+        }
     }
 
     if (playerScore > computerScore) {
