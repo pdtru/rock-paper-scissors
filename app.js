@@ -1,27 +1,25 @@
 // function for one round of rock paper scissors
 function playRound(playerSelection, computerSelection) {
-
     if (playerSelection === computerSelection) {
-        return "It's a tie!"
-
-    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return "You win! Rock beats scissors."
-
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return "You lose! Paper beats rock."
-
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return "You win! Paper beats rock."
-
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return "You lose! Scissors beats paper."
-
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return "You win! Scissors beats paper."
-
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return "You lose! Rock beats scissors. "
-
+        return "It's a tie!";
+    } else if (playerSelection === "rock") {
+        if (computerSelection === "scissors") {
+            return "You win! Rock beats scissors.";
+        } else {
+            return "You lose! Paper beats rock.";
+        }
+    } else if (playerSelection === "paper") {
+        if (computerSelection === "rock") {
+            return "You win! Paper beats rock.";
+        } else {
+            return "You lose! Scissors beats paper.";
+        }
+    } else if (playerSelection === "scissors") {
+        if (computerSelection === "paper") {
+            return "You win! Scissors beats paper."
+        } else {
+            return "You lose! Rock beats paper."
+        }
     } else {
         return "Invalid choice. Please choose rock, paper or scissors."
     }
@@ -48,7 +46,7 @@ function game() {
         } else if (result.startsWith("You lose!")) {
             computerScore++;
         }
-        console.log("You score: " + playerScore + " Computer score: " + computerScore);
+        console.log("Your score: " + playerScore + " Computer score: " + computerScore);
     }
 
     if (playerScore > computerScore) {
@@ -61,3 +59,6 @@ function game() {
 }
 
 game();
+
+
+
