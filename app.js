@@ -1,33 +1,38 @@
 // function for one round of rock paper scissors
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+    const choices = ['rock', 'paper', 'scissors'];
+    // variable that selects random value from an array
+    const computerSelection = choices[Math.floor(Math.random() * choices.length)];
+    playerSelection = playerSelection.toLowerCase();
+    if (!choices.includes(playerSelection)) {
+        return "Invalid choice. Please choose rock, paper or scissors."
+    }
     if (playerSelection === computerSelection) {
         return "It's a tie!";
-    } else if (playerSelection === "rock") {
-        if (computerSelection === "scissors") {
-            return "You win! Rock beats scissors.";
-        } else {
-            return "You lose! Paper beats rock.";
-        }
-    } else if (playerSelection === "paper") {
-        if (computerSelection === "rock") {
-            return "You win! Paper beats rock.";
-        } else {
-            return "You lose! Scissors beats paper.";
-        }
-    } else if (playerSelection === "scissors") {
-        if (computerSelection === "paper") {
-            return "You win! Scissors beats paper."
-        } else {
-            return "You lose! Rock beats paper."
-        }
+    } if (playerSelection === 'rock' && computerSelection === 'scissors' ||
+        playerSelection === 'paper' && computerSelection === 'rock' ||
+        playerSelection === 'scissors' && computerSelection === 'paper') {
+        return `You win, ${playerSelection} beats ${computerSelection}!`;
     } else {
-        return "Invalid choice. Please choose rock, paper or scissors."
+        return `You lose, ${computerSelection} beats ${playerSelection}!`;
     }
 }
 
-const choices = ['rock', 'paper', 'scissors'];
-let playerScore = 0;
-let computerScore = 0;
+const buttons = document.querySelectorAll('#buttons button');
+const result = document.querySelector('#result');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const playerSelection = button.id;
+        const roundResult = playRound(playerSelection);
+        result.textContent = roundResult;
+    });
+});
+
+
+// const choices = ['rock', 'paper', 'scissors'];
+// let playerScore = 0;
+// let computerScore = 0;
 
 // function that plays 5 rounds
 // function game() {
@@ -36,15 +41,15 @@ let computerScore = 0;
     //     alert("Round " + roundNumber);
 
         // case-insensitive prompt for user
-        const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
+        // const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
 
         // variable that selects random value from an array
-        const computerSelection = choices[Math.floor(Math.random() * choices.length)];
+        // const computerSelection = choices[Math.floor(Math.random() * choices.length)];
 
-        const result = playRound(playerSelection, computerSelection);
-        console.log("Player chose: " + playerSelection);
-        console.log("Computer chose: " + computerSelection);
-        console.log(result);
+        // const result = playRound(playerSelection, computerSelection);
+        // console.log("Player chose: " + playerSelection);
+        // console.log("Computer chose: " + computerSelection);
+        // console.log(result);
     //     if (result.startsWith("It's a tie!") || result.startsWith("Invalid choice.")) {
     //         i--;
     //         continue;
