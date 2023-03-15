@@ -31,6 +31,7 @@ body {
 
 .score-board {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 50px;
@@ -38,7 +39,6 @@ body {
     padding: 15px 20px;
     border: 5px solid #2f2f2f;
     border-radius: 8px;
-    width: 225px;
     color: #fcc419;
     font-size: 36px;
 }
@@ -48,6 +48,11 @@ body {
     justify-content: center;
     font-size: 14px;
     padding: 14px;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
 }
 
 .compare {

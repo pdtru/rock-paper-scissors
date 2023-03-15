@@ -10,10 +10,10 @@ const scissors_div = document.getElementById("scissors");
 const you_div = document.getElementById("you");
 const cpu_div = document.getElementById("cpu");
 
-function getcomputerChoice() {
+function getComputerChoice() {
     const choices = ['r', 'p', 's'];
     const randomNumber = Math.floor(Math.random() * choices.length);
-    return choices[randomNumber]; a
+    return choices[randomNumber];
 }
 
 function convertToWord(userChoice) {
@@ -22,17 +22,26 @@ function convertToWord(userChoice) {
     return "SCISSORS";
 }
 
-function changeImageRock() {
-    you_div.src="images/rock.png";
+function changeCpuImage(computerChoice) {
+    if (computerChoice == 'r') {
+        cpu_div.src = "images/rock.png";
+    } else if (computerChoice == 'p') {
+        cpu_div.src = "images/paper.png";
+    } else {
+        cpu_div.src = "images/scissors.png";
+    }
 }
 
-function changeImagePaper() {
-    you_div.src="images/paper.png";
+function changeUserImage(userChoice) {
+    if (userChoice == 'r') {
+        you_div.src = "images/rock.png";
+    } else if (userChoice == 'p') {
+        you_div.src = "images/paper.png";
+    } else {
+        you_div.src = "images/scissors.png";
+    }
 }
 
-function changeImageScissors() {
-    you_div.src="images/scissors.png";
-}
 
 function win(userChoice, computerChoice) {
     userScore++;
@@ -53,7 +62,9 @@ function draw(userChoice, computerChoice) {
 }
 
 function game(userChoice) {
-    const computerChoice = getcomputerChoice();
+    const computerChoice = getComputerChoice();
+    changeCpuImage(computerChoice);
+    changeUserImage(userChoice);
     switch (userChoice + computerChoice) {
         case "rs":
         case "pr":
@@ -76,15 +87,13 @@ function game(userChoice) {
 function main() {
     rock_div.addEventListener('click', function () {
         game("r");
-        changeImageRock();
     })
     paper_div.addEventListener('click', function () {
         game("p");
-        changeImagePaper();
+
     })
     scissors_div.addEventListener('click', function () {
         game("s");
-        changeImageScissors();
     })
 }
 
