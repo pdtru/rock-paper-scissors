@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Press Start 2P', sans-serif;
+    color: #fcc419;
 }
 
 header {
@@ -22,7 +23,7 @@ body {
     background: #191A1D;
 }
 
-#content {
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,8 +33,8 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
     padding: 15px 20px;
     border: 5px solid #2f2f2f;
     border-radius: 8px;
@@ -47,6 +48,23 @@ body {
     justify-content: center;
     font-size: 14px;
     padding: 14px;
+}
+
+.compare {
+    display: flex;
+    margin: 20px;
+}
+
+#you {
+    margin: 10px 30px;
+}
+
+#vs {
+    align-self: center;
+}
+
+#cpu {
+    margin: 10px 30px;
 }
 
 .result {
