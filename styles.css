@@ -34,7 +34,7 @@ body {
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 50px;
+    margin-top: 80px;
     margin-bottom: 20px;
     padding: 15px 20px;
     border: 5px solid #2f2f2f;
@@ -96,4 +96,12 @@ body {
 .choice:hover {
     cursor: pointer;
     background: #454545;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
