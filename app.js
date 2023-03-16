@@ -4,6 +4,7 @@ const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector(".score-board");
 const result_p = document.querySelector(".result > p");
+const subtext_p = document.querySelector(".subtext > p");
 const rock_div = document.getElementById("rock");
 const paper_div = document.getElementById("paper");
 const scissors_div = document.getElementById("scissors");
@@ -43,22 +44,25 @@ function changeUserImage(userChoice) {
 }
 
 
-function win(userChoice, computerChoice) {
+function win(userChoice, computerChoice) {    
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${convertToWord(userChoice)} BEATS ${convertToWord(computerChoice)}. YOU WIN!`
+    result_p.innerHTML = `${convertToWord(userChoice)} BEATS ${convertToWord(computerChoice)}.`;
+    subtext_p.innerHTML = "YOU WIN!"
 }
 
 function lose(userChoice, computerChoice) {
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${convertToWord(computerChoice)} BEATS ${convertToWord(userChoice)}. YOU LOSE!`
+    result_p.innerHTML = `${convertToWord(computerChoice)} BEATS ${convertToWord(userChoice)}.`;
+    subtext_p.innerHTML = "YOU LOSE!"
 }
 
 function draw(userChoice, computerChoice) {
-    result_p.innerHTML = "DRAW!"
+    result_p.innerHTML = "DRAW!";
+    subtext_p.innerHTML = "";
 }
 
 function game(userChoice) {
@@ -81,6 +85,12 @@ function game(userChoice) {
         case "ss":
             draw(userChoice, computerChoice);
             break;
+    }
+}
+
+function didGameEnd(userScore, computerScore) {
+    if (userScore == 5 || computerScore == 5) {
+        
     }
 }
 
